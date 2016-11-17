@@ -8,7 +8,7 @@ Script to delete an app and related files from your mac
 
 Example:
 
-git clone https://github.com/PavelEvsaev/macOS-App-Uninstaller.git
-cd ./macOS-App-Uninstaller/
-chmod u+x delete_app.sh
-./delete_app.sh APP_TO_DELETE_NAME
+1. git clone https://github.com/PavelEvsaev/macOS-App-Uninstaller.git
+2. cd ./macOS-App-Uninstaller/
+3. chmod u+x delete_app.sh
+4. ./delete_app.sh APP_TO_DELETE_NAME
