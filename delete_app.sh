@@ -7,7 +7,7 @@ ask_to_delete() {
 
 need_to_delete() {
 
-	ask_to_delete $1
+	ask_to_delete "$1"
 
 	read -p "Input (y/n):" answer < /dev/tty
 
@@ -27,23 +27,23 @@ is_empty() {
 }
 
 delete() {
-	rm -rf "$1"
+	rm -vr "$1"
 }
 
 related_files="related_files.txt"
-mdfind -name $1 > $related_files
+mdfind -name "$1" > "$related_files"
 
-if is_empty $related_files; then
+if is_empty "$related_files"; then
 	echo "No '$1' application files on your computer" 
-	delete $related_files
+	delete "$related_files"
     exit 0
 fi
 
-cat $related_files | while read filename; do
-	if need_to_delete $filename; then
-		delete $filename
+cat "$related_files" | while read filename; do
+	if need_to_delete "$filename"; then
+		delete "$filename"
 	fi
 done
 
-delete $related_files
+delete "$related_files"
 exit 0
